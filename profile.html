@@ -1,0 +1,14 @@
+<h2>Tourist Profile</h2>
+
+<p>Name: Explorer</p>
+
+<p>Points:
+<span id="points"></span>
+</p>
+
+<script>
+
+document.getElementById("points").innerText =
+localStorage.getItem("points") || 0
+
+</script>
