@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zartour</title>
+<title>Zartour Cultural Explorer</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
-
 <body>
+<header>Zartour Cultural Explorer</header>
 
-<h1>Zartour Cultural Explorer</h1>
+<nav>
+  <button onclick="window.location='map.html'">Explore Map</button>
+  <button onclick="window.location='profile.html'">My Profile</button>
+  <button onclick="window.location='passport.html'">Cultural Passport</button>
+  <button onclick="window.location='leaderboard.html'">Leaderboard</button>
+</nav>
 
-<div class="menu">
+<section class="container" id="questsContainer">
+  <!-- Quest cards dynamically injected -->
+</section>
 
-<a href="map.html"><button>Explore Map</button></a>
+<footer>&copy; 2026 Zartour | All Rights Reserved</footer>
 
-<a href="profile.html"><button>My Profile</button></a>
-
-<a href="passport.html"><button>Cultural Passport</button></a>
-
-<a href="leaderboard.html"><button>Leaderboard</button></a>
-
-</div>
-
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="app.js"></script>
 </body>
-</html>
+  </html>
