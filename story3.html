@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Badge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Final Cultural Site</h1>
+</header>
+
+<div class="card">
+
+<p>
+You have discovered the final cultural checkpoint.
+</p>
+
+<button onclick="finish()">Complete Quest</button>
+
+<div id="badge" class="hidden">
+
+🏆 MASTER OF BAKONE HERITAGE
+
+<p>You completed the Zartour Cultural Quest!</p>
+
+<a href="https://forms.gle/">
+<button>Book Cultural Experience</button>
+</a>
+
+</div>
+
+</div>
+
+<script>
+function finish(){
+localStorage.setItem("zartourProgress",3)
+document.getElementById("badge").style.display="block"
+}
+</script>
+
+</body>
+</html>
