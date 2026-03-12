@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakone Story</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Site 1 – Bakone Story</h1>
+</header>
+
+<div class="card">
+
+<p>
+The Bakone people have passed knowledge through oral storytelling for centuries.
+Traditional healers use sacred plants for healing and spiritual rituals.
+</p>
+
+<h3>Challenge</h3>
+<p>Which plant is commonly used for cleansing rituals?</p>
+
+<button onclick="correct()">Imphepho</button>
+
+<div id="reward" class="hidden">
+🏅 You earned +10 points
+<br><br>
+<a href="story2.html"><button>Next Location</button></a>
+</div>
+
+</div>
+
+<script>
+function correct(){
+localStorage.setItem("zartourProgress",1)
+document.getElementById("reward").style.display="block"
+}
+</script>
+
+</body>
+</html>
