@@ -1,33 +1,22 @@
 body{
 font-family:Arial;
-background:#f4f4f4;
-margin:0;
 text-align:center;
+background:#f4f4f4;
 }
 
-header{
-background:#2e7d32;
-color:white;
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-margin:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+#map{
+height:500px;
 }
 
 button{
 padding:12px 20px;
-background:#f39c12;
+margin:10px;
+background:#2e7d32;
+color:white;
 border:none;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
+border-radius:6px;
 }
 
-.hidden{
-display:none;
+.menu{
+margin-top:40px;
 }
