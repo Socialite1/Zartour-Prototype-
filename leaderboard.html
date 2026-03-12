@@ -1,14 +1,42 @@
-<h2>Cultural Explorer Leaderboard</h2>
+<!DOCTYPE html>
+<html>
+<head>
 
-<ol>
-<li>You – <span id="points"></span> points</li>
-<li>Explorer Ayana – 80</li>
-<li>Explorer Daisy – 60</li>
-</ol>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zartour Leaderboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Zartour</div>
+
+<h3>Top Cultural Explorers</h3>
+
+</header>
+
+<div class="leaderboard" id="leaderboard"></div>
+
+<footer>
+
+<button onclick="location.href='index.html'">Feed</button>
+<button onclick="location.href='story.html'">Explore</button>
+<button onclick="location.href='passport.html'">Passport</button>
+<button onclick="location.href='leaderboard.html'">Leaderboard</button>
+
+</footer>
+
+<script src="app.js"></script>
 
 <script>
 
-document.getElementById("points").innerText =
-localStorage.getItem("points") || 0
+loadLeaderboard()
 
 </script>
+
+</body>
+</html>
