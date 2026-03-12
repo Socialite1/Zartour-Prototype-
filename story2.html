@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Tree</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Site 2 – Sacred Tree</h1>
+</header>
+
+<div class="card">
+
+<p>
+This tree has been used for community gatherings, storytelling, and traditional ceremonies.
+</p>
+
+<h3>Challenge</h3>
+<p>What happened under this tree?</p>
+
+<button onclick="correct()">Community Meetings</button>
+
+<div id="reward" class="hidden">
+🏅 Explorer Level 2
+<br><br>
+<a href="story3.html"><button>Next Location</button></a>
+</div>
+
+</div>
+
+<script>
+function correct(){
+localStorage.setItem("zartourProgress",2)
+document.getElementById("reward").style.display="block"
+}
+</script>
+
+</body>
+</html>
