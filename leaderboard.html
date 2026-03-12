@@ -1,0 +1,14 @@
+<h2>Cultural Explorer Leaderboard</h2>
+
+<ol>
+<li>You – <span id="points"></span> points</li>
+<li>Explorer Ayana – 80</li>
+<li>Explorer Daisy – 60</li>
+</ol>
+
+<script>
+
+document.getElementById("points").innerText =
+localStorage.getItem("points") || 0
+
+</script>
