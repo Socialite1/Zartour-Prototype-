@@ -1,4 +1,13 @@
-function loadQuest(){
+let feed = JSON.parse(localStorage.getItem("feed")||"[]")
+
+feed.unshift({
+user:"You",
+action:"completed a quest",
+place:data.title,
+time:"just now"
+})
+
+localStorage.setItem("feed", JSON.stringify(feed))function loadQuest(){
 
 const params = new URLSearchParams(window.location.search)
 
