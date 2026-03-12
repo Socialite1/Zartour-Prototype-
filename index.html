@@ -2,38 +2,25 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zartour Cultural Quest</title>
+<title>Zartour</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<h1>Zartour</h1>
-<p>Explore Culture. Unlock Stories.</p>
-</header>
+<h1>Zartour Cultural Explorer</h1>
 
-<div class="card">
+<div class="menu">
 
-<h2>Bakone Cultural Quest</h2>
+<a href="map.html"><button>Explore Map</button></a>
 
-<p>
-Welcome to Ga-Mphahlele.  
-Scan cultural locations around the village to unlock stories and earn badges.
-</p>
+<a href="profile.html"><button>My Profile</button></a>
 
-<p>Progress: <span id="progress">0</span>/3 Sites</p>
+<a href="passport.html"><button>Cultural Passport</button></a>
 
-<a href="story1.html">
-<button>Start Quest</button>
-</a>
+<a href="leaderboard.html"><button>Leaderboard</button></a>
 
 </div>
-
-<script>
-let progress = localStorage.getItem("zartourProgress") || 0
-document.getElementById("progress").innerText = progress
-</script>
 
 </body>
 </html>
