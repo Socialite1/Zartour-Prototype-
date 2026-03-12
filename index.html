@@ -1,115 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zartour – Cultural Quest</title>
-
-<style>
-body{
-font-family: Arial, sans-serif;
-background:#f5f5f5;
-text-align:center;
-margin:0;
-}
-
-header{
-background:#2b6e3f;
-color:white;
-padding:20px;
-}
-
-.container{
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-margin-top:20px;
-}
-
-button{
-background:#f39c12;
-border:none;
-padding:15px 25px;
-font-size:16px;
-border-radius:8px;
-cursor:pointer;
-}
-
-button:hover{
-background:#d68910;
-}
-
-.badge{
-display:none;
-background:#27ae60;
-color:white;
-padding:15px;
-border-radius:10px;
-margin-top:20px;
-font-weight:bold;
-}
-</style>
-
+<title>Zartour Cultural Quest</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>Zartour Cultural Quest</h1>
-<p>Explore. Learn. Earn Rewards.</p>
+<h1>Zartour</h1>
+<p>Explore Culture. Unlock Stories.</p>
 </header>
 
-<div class="container">
-
 <div class="card">
-<h2>Bakone Village Story</h2>
+
+<h2>Bakone Cultural Quest</h2>
 
 <p>
-Welcome to Bakone heritage land.  
-For generations, traditional healers used local plants for medicine and spiritual guidance.
+Welcome to Ga-Mphahlele.  
+Scan cultural locations around the village to unlock stories and earn badges.
 </p>
 
-<p>
-Answer the question below to unlock your explorer badge.
-</p>
+<p>Progress: <span id="progress">0</span>/3 Sites</p>
 
-<h3>Question</h3>
-<p>Which plant is traditionally used for healing?</p>
-
-<button onclick="unlock()">Reveal Badge</button>
-
-<div class="badge" id="badge">
-🏅 Congratulations!  
-You earned the **Bakone Explorer Badge**  
-+10 Cultural Points
-</div>
-
-</div>
-
-<div class="card">
-<h2>Book a Cultural Experience</h2>
-
-<p>
-Interested in a guided cultural tour with local storytellers?
-</p>
-
-<a href="https://forms.gle/">
-<button>Book Experience</button>
+<a href="story1.html">
+<button>Start Quest</button>
 </a>
 
 </div>
 
-</div>
-
 <script>
-function unlock(){
-document.getElementById("badge").style.display="block";
-}
+let progress = localStorage.getItem("zartourProgress") || 0
+document.getElementById("progress").innerText = progress
 </script>
 
 </body>
