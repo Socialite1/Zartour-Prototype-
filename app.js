@@ -1,3 +1,46 @@
+function addFeedActivity(user,action,place){
+
+let feed = JSON.parse(localStorage.getItem("feed") || "[]")
+
+feed.unshift({
+
+user:user,
+action:action,
+place:place,
+time:"just now"
+
+})
+
+localStorage.setItem("feed",JSON.stringify(feed))
+
+}
+
+function loadFeed(){
+
+const feedBox = document.getElementById("activityFeed")
+
+let feed = JSON.parse(localStorage.getItem("feed") || "[]")
+
+feed.forEach(a=>{
+
+let card = document.createElement("div")
+
+card.className="feed-card"
+
+card.innerHTML = `
+
+<div class="feed-user">${a.user}</div>
+<div class="feed-action">${a.action} at <b>${a.place}</b></div>
+<div class="feed-time">${a.time}</div>
+
+`
+
+feedBox.appendChild(card)
+
+})
+
+}
+
 function loadPassport(){
 
 let user = JSON.parse(localStorage.getItem("zartourUser"))
@@ -53,16 +96,63 @@ document.getElementById("questStory").innerText = quests[quest].story
 
 }
 
-function completeQuest(){
+function initUser(){
 
-let points = localStorage.getItem("points") || 0
+let user = JSON.parse(localStorage.getItem("zartourUser"))
 
-points = parseInt(points) + 10
+if(!user){
 
-localStorage.setItem("points",points)
+let name = prompt("Welcome Explorer! Enter your name:")
 
-document.getElementById("reward").innerText =
-"Quest complete! +10 cultural points"
+user = {
+name:name,
+points:0,
+level:"Village Explorer",
+questsCompleted:0
+}
+
+localStorage.setItem("zartourUser", JSON.stringify(user))
+
+}
+
+}
+
+initUser()
+
+function updateLevel(){
+
+let user = JSON.parse(localStorage.getItem("zartourUser"))
+
+if(user.points >= 100){
+
+user.level = "Cultural Guardian"
+
+}
+
+if(user.points >= 200){
+
+user.level = "Heritage Champion"
+
+}
+
+localStorage.setItem("zartourUser", JSON.stringify(user))
+
+}
+
+function completeQuest(place){
+
+let user = JSON.parse(localStorage.getItem("zartourUser"))
+
+user.points += 10
+user.questsCompleted += 1
+
+localStorage.setItem("zartourUser", JSON.stringify(user))
+
+updateLevel()
+
+addFeedActivity(user.name,"completed a quest",place)
+
+alert("Quest complete! +10 points")
 
 }
 
