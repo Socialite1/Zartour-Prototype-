@@ -1,3 +1,24 @@
+function loadPassport(){
+
+let user = JSON.parse(localStorage.getItem("zartourUser"))
+
+const passport = document.getElementById("passportStamps")
+
+for(let i=0;i<user.questsCompleted;i++){
+
+let stamp = document.createElement("div")
+
+stamp.className="stamp"
+
+stamp.innerText="✔"
+
+passport.appendChild(stamp)
+
+}
+
+}
+
+
 let feed = JSON.parse(localStorage.getItem("feed")||"[]")
 
 feed.unshift({
