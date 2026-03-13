@@ -12,3 +12,25 @@ document.getElementById("points").innerText =
 localStorage.getItem("points") || 0
 
 </script>
+
+<h2>Explorer Profile</h2>
+
+<div id="profile"></div>
+
+<script>
+
+let user = JSON.parse(localStorage.getItem("zartourUser"))
+
+document.getElementById("profile").innerHTML = `
+
+<h3>${user.name}</h3>
+
+<p>Level: ${user.level}</p>
+
+<p>Points: ${user.points}</p>
+
+<p>Quests completed: ${user.questsCompleted}</p>
+
+`
+
+</script>
