@@ -33,6 +33,25 @@
 <script src="app.js"></script>
 
 <script>
+  function loadLeaderboard(){
+
+let user = JSON.parse(localStorage.getItem("zartourUser"))
+
+const players = [
+
+{name:user.name, points:user.points},
+
+{name:"Anna", points:120},
+
+{name:"David", points:95},
+
+{name:"Lerato", points:80}
+
+]
+
+players.sort((a,b)=>b.points-a.points)
+
+ }
 
 loadLeaderboard()
 
