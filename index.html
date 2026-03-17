@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Zartour</title>
+
+<meta name="description" content="Explore culture, earn badges, and discover heritage with Zartour.">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Zartour">
+<meta property="og:description" content="Explore culture. Earn status. Move through heritage.">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,127 +22,90 @@
 <body>
 
 <header>
+  <div class="logo">Zartour</div>
 
-<div class="logo">Zartour</div>
-
-<div class="tabs">
-<span class="active">Feed</span>
-<span onclick="location.href='passport.html'">Passport</span>
-<span onclick="location.href='leaderboard.html'">Leaderboard</span>
-</div>
-
+  <nav class="tabs">
+    <span class="active">Feed</span>
+    <span onclick="location.href='passport.html'">Passport</span>
+    <span onclick="location.href='leaderboard.html'">Leaderboard</span>
+  </nav>
 </header>
 
+<main>
 
-<div class="feed" id="activityFeed"></div>
-  <div class="feed-card">
+  <!-- Loading State -->
+  <div id="loading" class="loading">Loading experiences...</div>
 
-<img class="avatar" src="https://i.pravatar.cc/40">
+  <!-- Feed -->
+  <div class="feed" id="activityFeed"></div>
 
-<div class="feed-content">
-
-<div class="feed-user">Ayana Thobejane</div>
-
-<div class="feed-text">
-earned the <b>Heritage Explorer Badge</b> at Bakone Village
-</div>
-
-<div class="feed-time">2 minutes ago</div>
-
-</div>
-
-</div>
-
-
-<div class="feed-card">
-
-<img class="avatar" src="https://i.pravatar.cc/41">
-
-<div class="feed-content">
-
-<div class="feed-user">Ophethile Sefala</div>
-
-<div class="feed-text">
-checked in at <b>Sacred Tree</b>
-</div>
-
-<div class="feed-time">10 minutes ago</div>
-
-</div>
-
-</div>
-  <div class="feed-card">
-
-<img class="avatar" src="https://i.pravatar.cc/41">
-
-<div class="feed-content">
-
-<div class="feed-user"> King Teedo Sekgololo</div>
-
-<div class="feed-text">
-Completed the  <b>Bakgaga Cultural Tour-Nament</b>
-</div>
-
-<div class="feed-time">25 minutes ago</div>
-
-</div>
-
+  <!-- Empty State -->
+  <div id="emptyState" class="empty hidden">
+    No activity yet. Be the first to explore.
   </div>
 
-  <div class="feed-card">
+</main>
 
-<img class="avatar" src="https://i.pravatar.cc/41">
+<!-- Floating Action Button -->
+<button class="fab" title="Add Experience">+</button>
 
-<div class="feed-content">
-
-<div class="feed-user">Modimopedi Africa</div>
-
-<div class="feed-text">
-checked in @ <b>Bakone Malapa Cultural Site</b>
-</div>
-
-<div class="feed-time"> 4d ago</div>
-
-</div>
-
-</div>
-
-  <div class="feed-card">
-
-<img class="avatar" src="https://i.pravatar.cc/41">
-
-<div class="feed-content">
-
-<div class="feed-user">Kgosi Mmutle</div>
-
-<div class="feed-text">
-checked in @ <b> Mphahlele Tribal Authority</b>
-</div>
-
-<div class="feed-time"> Now</div>
-
-</div>
-
-</div>
-
-<button class="fab">+</button>
 <footer>
-
-<button onclick="location.href='index.html'">Feed</button>
-<button onclick="location.href='story.html'">Explore</button>
-<button onclick="location.href='passport.html'">Passport</button>
-<button onclick="location.href='leaderboard.html'">Leaderboard</button>
-
+  <button onclick="location.href='index.html'">Feed</button>
+  <button onclick="location.href='story.html'">Explore</button>
+  <button onclick="location.href='passport.html'">Passport</button>
+  <button onclick="location.href='leaderboard.html'">Leaderboard</button>
 </footer>
 
 <script src="app.js"></script>
 
 <script>
+function renderFeedItem(user, text, time, avatar) {
+  return `
+    <div class="feed-card">
+      <img class="avatar" src="${avatar}" alt="${user}">
+      <div class="feed-content">
+        <div class="feed-user">${user}</div>
+        <div class="feed-text">${text}</div>
+        <div class="feed-time">${time}</div>
+      </div>
+    </div>
+  `;
+}
 
-loadFeed()
+function loadFeed() {
+  const feed = document.getElementById("activityFeed");
+  const loading = document.getElementById("loading");
+  const empty = document.getElementById("emptyState");
 
+  loading.style.display = "none";
+
+  const data = [
+    {
+      user: "Ayana Thobejane",
+      text: "earned the <b>Heritage Explorer Badge</b> at Bakone Village",
+      time: "2 minutes ago",
+      avatar: "https://i.pravatar.cc/40"
+    },
+    {
+      user: "Ophethile Sefala",
+      text: "checked in at <b>Sacred Tree</b>",
+      time: "10 minutes ago",
+      avatar: "https://i.pravatar.cc/41"
+    }
+  ];
+
+  if (data.length === 0) {
+    empty.classList.remove("hidden");
+    return;
+  }
+
+  feed.innerHTML = data.map(item =>
+    renderFeedItem(item.user, item.text, item.time, item.avatar)
+  ).join("");
+}
+
+loadFeed();
 </script>
 
 </body>
-
-</html>
+  </html>
